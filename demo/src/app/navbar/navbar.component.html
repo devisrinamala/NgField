@@ -1,0 +1,29 @@
+<form [formGroup]="form">
+    <input type="text" id="name" placeholder="enter name" formControlName="name">
+    <input type="text" id="branch" placeholder="enter branch" formControlName="branch">
+    <input type="email" id="email" placeholder="enter email" formControlName="email">
+    <button (click)="postdata()">Insert</button>
+</form>
+<table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>branch</th>
+            <th>email</th>
+            <th>actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let r of records">
+            <td>{{r.id}}</td>
+            <td>{{r.name}}</td>
+            <td>{{r.branch}}</td>
+            <td>{{r.email}}</td>
+            <td>
+                <!-- <button class="btn btn-outline-primary" (click)="updateuser()">Update</button> -->
+                <button class="btn btn-outline-danger" (click)="deleteuser(r.id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
